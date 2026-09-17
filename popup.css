@@ -1,0 +1,288 @@
+:root {
+  color-scheme: light;
+  --bg: #f7f8fb;
+  --panel: #ffffff;
+  --text: #151827;
+  --muted: #5d6475;
+  --line: #d8dde8;
+  --brand: #3b3b98;
+  --brand-strong: #2b2b78;
+  --focus: #b0316a;
+  --ok: #1f7a4d;
+  --near: #9a5c00;
+  --over: #b42318;
+  --shadow: 0 8px 26px rgba(27, 31, 49, 0.12);
+}
+
+body.dark {
+  color-scheme: dark;
+  --bg: #10131a;
+  --panel: #1b2030;
+  --text: #f4f6fb;
+  --muted: #bbc3d2;
+  --line: #394154;
+  --brand: #8ea4ff;
+  --brand-strong: #b8c5ff;
+  --focus: #ffb357;
+  --ok: #6fd39d;
+  --near: #ffd27a;
+  --over: #ff978f;
+  --shadow: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  width: 380px;
+  min-height: 560px;
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 14px/1.45 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+button,
+textarea,
+select,
+input,
+a {
+  font: inherit;
+}
+
+button:focus-visible,
+textarea:focus-visible,
+a:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.popup-shell {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 14px;
+}
+
+.topbar,
+.section-header,
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-size: 18px;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 15px;
+}
+
+.topbar p,
+.hint,
+footer,
+.page-result {
+  color: var(--muted);
+}
+
+.icon-link {
+  display: inline-flex;
+  min-width: 34px;
+  height: 34px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  padding: 0 8px;
+  color: var(--text);
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.counter-panel,
+.limits-panel,
+.serp-panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: var(--shadow);
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 650;
+}
+
+textarea {
+  width: 100%;
+  min-height: 124px;
+  resize: vertical;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 9px;
+  background: var(--panel);
+  color: var(--text);
+}
+
+.toolbar {
+  margin-top: 10px;
+}
+
+button {
+  border: 0;
+  border-radius: 6px;
+  padding: 8px 11px;
+  background: var(--brand);
+  color: #ffffff;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+button.secondary {
+  background: transparent;
+  color: var(--brand-strong);
+  border: 1px solid var(--line);
+}
+
+.counts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.metric {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 8px;
+}
+
+.metric strong {
+  display: block;
+  font-size: 18px;
+}
+
+.metric span,
+.limit-meta {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.limit-row {
+  margin-top: 10px;
+}
+
+.limit-label {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 12px;
+}
+
+.limit-label strong {
+  color: var(--text);
+}
+
+.track {
+  height: 8px;
+  margin-top: 5px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--line) 75%, transparent);
+}
+
+.fill {
+  height: 100%;
+  background: var(--ok);
+}
+
+.fill.near {
+  background: var(--near);
+}
+
+.fill.over {
+  background: var(--over);
+}
+
+.highlight {
+  outline: 2px solid var(--brand);
+  outline-offset: 3px;
+}
+
+.page-result {
+  margin-top: 10px;
+}
+
+.serp-card {
+  margin-top: 10px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 10px;
+  background: var(--bg);
+}
+
+.serp-url {
+  color: var(--ok);
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+
+.serp-title {
+  color: #1a0dab;
+  font-size: 16px;
+  line-height: 1.25;
+}
+
+body.dark .serp-title {
+  color: #9cb5ff;
+}
+
+.serp-desc {
+  color: var(--text);
+  font-size: 13px;
+}
+
+.status-list {
+  display: grid;
+  gap: 8px;
+}
+
+.status {
+  border-left: 4px solid var(--line);
+  padding-left: 8px;
+}
+
+.status.good {
+  border-color: var(--ok);
+}
+
+.status.short {
+  border-color: var(--near);
+}
+
+.status.long {
+  border-color: var(--over);
+}
+
+footer {
+  text-align: center;
+  font-size: 12px;
+}
+
+footer a {
+  color: var(--brand-strong);
+}

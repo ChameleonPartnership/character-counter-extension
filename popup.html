@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Character Counter Pro</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <main class="popup-shell">
+    <header class="topbar">
+      <div>
+        <h1>Character Counter Pro</h1>
+        <p id="draftStatus">Draft saved locally</p>
+      </div>
+      <a class="icon-link" href="options.html" aria-label="Open settings" title="Settings">Settings</a>
+    </header>
+
+    <section class="counter-panel" aria-label="Text counter">
+      <label for="draftText">Text to count</label>
+      <textarea id="draftText" rows="7" spellcheck="true" placeholder="Paste or type your text"></textarea>
+
+      <div class="toolbar" aria-label="Text actions">
+        <button id="copyStats" type="button">Copy stats</button>
+        <button id="clearText" type="button" class="secondary">Clear</button>
+      </div>
+
+      <div id="counts" class="counts-grid" aria-live="polite"></div>
+    </section>
+
+    <section class="limits-panel" aria-label="Platform limits">
+      <h2>Platform limits</h2>
+      <div id="limits"></div>
+    </section>
+
+    <section class="serp-panel" aria-label="SERP length checker">
+      <div class="section-header">
+        <h2>Check this page</h2>
+        <button id="checkPage" type="button">Run check</button>
+      </div>
+      <div id="pageResult" class="page-result" aria-live="polite">
+        <p>Use the button to read the active tab title and meta description.</p>
+      </div>
+    </section>
+
+    <footer>
+      <a href="https://www.character-counter.pro" target="_blank" rel="noopener noreferrer">Full toolset at character-counter.pro</a>
+    </footer>
+  </main>
+
+  <script src="shared/count.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
