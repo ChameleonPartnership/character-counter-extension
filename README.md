@@ -54,3 +54,24 @@ Generate the PNG icons:
 ```sh
 python3 tools/make_icons.py
 ```
+
+## Release Process
+
+The extension is live at
+https://chromewebstore.google.com/detail/character-counter-pro/hohgmkbomabchlmbblkddfnieefncjno
+Store uploads cannot be diffed afterwards, so every release follows the same
+steps and leaves a record.
+
+1. Bump `version` in `manifest.json`. Chrome rejects a version it has already
+   seen for this item, so never reuse a published number.
+2. Add a matching entry at the top of `CHANGELOG.md`. The manifest version and
+   the top changelog entry must agree before anything is uploaded.
+3. Run `node tests/count.test.js` and `python3 tools/package.py --check`. Both
+   must pass.
+4. Run `python3 tools/package.py` and copy the printed size and sha256 into
+   `RELEASES.md` alongside the source commit.
+5. Upload the zip from `dist/` in the Chrome Web Store developer dashboard and
+   submit the draft.
+6. Once the listing updates, tag the commit `v<version>` and push the tag.
+7. Open the public listing and check the title, description, screenshots,
+   permissions and privacy disclosure all render as intended.
